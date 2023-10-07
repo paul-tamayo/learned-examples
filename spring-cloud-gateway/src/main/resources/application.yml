@@ -26,13 +26,6 @@ spring:
         - Path=/api/demo/**
         filters: 
         - StripPrefix=2
-      
-        
-logging:
-  level:
-    root: INFO
-    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
-    org.springframework.cloud.gateway: TRACE
         
 management:
   endpoint:
