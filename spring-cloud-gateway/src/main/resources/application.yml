@@ -21,7 +21,7 @@ spring:
           lower-case-service-id: true
       routes:
       - id: restful-api-demo
-        uri: http://localhost:8090
+        uri: lb://restful-api-demo
         predicates:
         - Path=/api/demo/**
         filters: 
