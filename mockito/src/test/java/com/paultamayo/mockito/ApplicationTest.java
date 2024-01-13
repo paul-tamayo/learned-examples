@@ -1,13 +1,22 @@
 package com.paultamayo.mockito;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+@ExtendWith(MockitoExtension.class)
 class ApplicationTest {
 
+    @InjectMocks
+    private Application app;
+
     @Test
-    void shouldAnswerWithTrue() {
-        assertTrue(true);
+    void testHelloWorld() {
+        String response = app.helloWorld("Diego");
+
+        assertEquals("Hello World Diego!", response);
     }
 }
