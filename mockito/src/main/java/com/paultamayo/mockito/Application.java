@@ -1,18 +1,15 @@
 package com.paultamayo.mockito;
 
-import lombok.extern.flogger.Flogger;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@Flogger
+@EnableDiscoveryClient
+@SpringBootApplication
 public class Application {
 
-    public String helloWorld(String name) {
-        return String.format("Hello World %s!", name);
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
 
-    }
-
-    public static void main(String[] args) {
-        Application app = new Application();
-
-        log.atInfo().log(app.helloWorld("Diego"));
-    }
 }

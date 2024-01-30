@@ -3,17 +3,24 @@ package com.paultamayo.mockito.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.Query;
+
 import com.paultamayo.mockito.domains.Person;
+
+import jakarta.persistence.Tuple;
 
 public interface PersonRepository {
 
-    Person save(Person person);
+	long count();
 
-    Optional<Person> findById(long id);
+	void delete(Person person);
 
-    List<Person> findAll();
+	List<Person> findAll();
 
-    long count();
+	Optional<Person> findById(long id);
 
-    void delete(Person person);
+	@Query(value = "SELECT * FROM PERSONA")
+	List<Tuple> findByNativeSQL();
+
+	Person save(Person person);
 }
