@@ -9,6 +9,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.paultamayo.mockito.domains.Person;
 import com.paultamayo.mockito.repository.PersonRepository;
+import com.paultamayo.mockito.utils.MutableTuple;
 
 @ExtendWith(MockitoExtension.class)
 class PersonServiceTest {
@@ -44,6 +46,22 @@ class PersonServiceTest {
     @BeforeEach
     void before() {
         service = new PersonService(repository);
+    }
+
+    @Test
+    void testFindByNativeSQL() {
+        MutableTuple tuple = new MutableTuple();
+        tuple.set("ID", 123456789L);
+        tuple.set("NAME", "DIEGO");
+        tuple.set("BIRTHDAY", LocalDate.of(1980, 11, 12));
+
+        when(repository.findByNativeSQL()).thenReturn(List.of(tuple));
+
+        List<Person> persons = service.findByNativeSQL();
+
+        assertNotNull(persons);
+        assertEquals(1, persons.size());
+        assertEquals(123456789L, persons.get(0).getId());
     }
 
     @Test

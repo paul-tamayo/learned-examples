@@ -1,12 +1,11 @@
 package com.paultamayo.mockito.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 import com.paultamayo.mockito.domains.Person;
 import com.paultamayo.mockito.repository.PersonRepository;
-
-import jakarta.persistence.Tuple;
 
 public class PersonService {
 
@@ -32,8 +31,11 @@ public class PersonService {
 		return repository.findById(id);
 	}
 
-	public List<Tuple> findByNativeSQL() {
-		return repository.findByNativeSQL();
+	public List<Person> findByNativeSQL() {
+		return repository
+				.findByNativeSQL().stream().map(t -> Person.builder().id(t.get("ID", Long.class))
+						.name(t.get("NAME", String.class)).birthDate(t.get("BIRTHDAY", LocalDate.class)).build())
+				.toList();
 	}
 
 	public Person save(Person person) {

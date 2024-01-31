@@ -19,7 +19,7 @@ public interface PersonRepository {
 
 	Optional<Person> findById(long id);
 
-	@Query(value = "SELECT * FROM PERSONA")
+	@Query(value = "SELECT ID, NAME, BIRTHDAY FROM PERSONA")
 	List<Tuple> findByNativeSQL();
 
 	Person save(Person person);
