@@ -9,7 +9,6 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
