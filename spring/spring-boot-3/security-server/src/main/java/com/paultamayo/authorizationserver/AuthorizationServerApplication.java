@@ -1,13 +1,13 @@
-package com.paultamayo.securityserver;
+package com.paultamayo.authorizationserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SecurityServerApplication {
+public class AuthorizationServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecurityServerApplication.class, args);
+		SpringApplication.run(AuthorizationServerApplication.class, args);
 	}
 
 }
