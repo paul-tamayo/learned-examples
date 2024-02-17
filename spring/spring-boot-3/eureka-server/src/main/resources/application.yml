@@ -1,3 +1,7 @@
+app:
+  username: u
+  password: p
+
 server:
   port: 8761
   
