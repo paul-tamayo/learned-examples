@@ -19,7 +19,7 @@ logging:
         security: trace
 
 server:
-  port: 9000
+  port: 9999
     
 spring:
   application:
