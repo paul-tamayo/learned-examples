@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Person {
 
-    private Long id;
+	private LocalDate birthDate;
 
-    private String name;
+	private Long id;
 
-    private LocalDate birthDate;
+	private String name;
 }

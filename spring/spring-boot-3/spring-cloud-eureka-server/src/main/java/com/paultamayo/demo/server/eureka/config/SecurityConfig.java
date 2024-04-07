@@ -12,11 +12,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-	@Value("${app.username}")
-	private String username;
-
 	@Value("${app.password}")
 	private String password;
+
+	@Value("${app.username}")
+	private String username;
 
 	@Bean
 	SecurityFilterChain configure(HttpSecurity http) throws Exception {
