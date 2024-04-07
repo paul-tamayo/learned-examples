@@ -11,9 +11,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.paultamayo</groupId>
-	<artifactId>spring-cloud-restful-api</artifactId>
+	<artifactId>spring-boot-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-cloud-restful-api</name>
+	<name>spring-boot-api</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
