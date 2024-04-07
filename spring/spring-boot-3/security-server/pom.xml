@@ -12,9 +12,9 @@
 	</parent>
 
 	<groupId>com.paultamayo</groupId>
-	<artifactId>authorization-server</artifactId>
+	<artifactId>spring-cloud-authorization-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>authorization-server</name>
+	<name>spring-cloud-authorization-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
