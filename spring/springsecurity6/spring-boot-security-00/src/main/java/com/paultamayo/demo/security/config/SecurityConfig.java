@@ -13,7 +13,7 @@ public class SecurityConfig {
 	SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(
-						r -> r.requestMatchers("/my-balance").authenticated().requestMatchers("/notice").permitAll())
+						r -> r.requestMatchers("/my-balance", "/home").authenticated().requestMatchers("/notice").permitAll())
 				.formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
 
 		return http.build();
