@@ -5,4 +5,7 @@ spring-boot-security-01
     -- Modificando el nombre de usuario y contraseña en el archivo application.properties
 
 spring-boot-security-02
-    -- Configuración de usuarios, contraseñas y roles utilizando InMemoryUserDetailsManager 
+    -- Configuración de usuarios, contraseñas y roles utilizando InMemoryUserDetailsManager
+    
+spring-boot-security-03
+    -- Configuración de usuarios, contraseñas y roles utilizando JDBC y MySQL
