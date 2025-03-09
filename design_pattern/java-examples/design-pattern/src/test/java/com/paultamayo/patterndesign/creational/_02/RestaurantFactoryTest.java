@@ -35,7 +35,7 @@ public class RestaurantFactoryTest {
 
     @Test
     void testGetRestaurantWithError() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> factory.getRestaurant("any"));
+        Exception exception = assertThrows(RuntimeException.class, () -> factory.getRestaurant("any"));
 
         assertInstanceOf(IllegalArgumentException.class, exception);
     }
