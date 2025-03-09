@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../design_pattern/java-examples"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}
