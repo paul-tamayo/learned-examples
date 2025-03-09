@@ -11,7 +11,7 @@ dependencies {
     compileOnly libs.lombok
 
     testAnnotationProcessor libs.lombok
-    
+
     testImplementation libs.junit.jupiter
 
     testCompileOnly libs.lombok
@@ -28,7 +28,7 @@ java {
 }
 
 application {
-    mainClass = 'com.paultamayo.pattern.design.App'
+    mainClass = 'com.paultamayo.patterndesign.App'
 }
 
 tasks.named('test') {
