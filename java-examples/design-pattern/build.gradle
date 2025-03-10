@@ -10,15 +10,13 @@ dependencies {
     annotationProcessor libs.lombok
     compileOnly libs.lombok
 
-    testAnnotationProcessor libs.lombok
-
-    testImplementation libs.junit.jupiter
-
-    testCompileOnly libs.lombok
-
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
+    implementation libs.beanutils
     implementation libs.guava
+
+    testAnnotationProcessor libs.lombok
+    testImplementation libs.junit.jupiter
+    testCompileOnly libs.lombok
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 java {
