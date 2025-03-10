@@ -1,4 +1,4 @@
-package com.paultamayo.patterndesign.creational._02;
+package com.paultamayo.patterndesign.creational._02_factory;
 
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;

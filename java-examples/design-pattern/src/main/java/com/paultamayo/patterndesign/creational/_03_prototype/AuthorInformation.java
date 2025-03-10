@@ -1,4 +1,4 @@
-package com.paultamayo.patterndesign.creational._03;
+package com.paultamayo.patterndesign.creational._03_prototype;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package com.paultamayo.patterndesign.creational._02;
+package com.paultamayo.patterndesign.creational._02_factory;
 
 public class ChickenRestaurant extends Restaurant {
 
