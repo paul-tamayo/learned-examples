@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 
 public class DataBaseConnectionTest {
 
-    private DataBaseConnection dataBaseConnection1;
+    private DatabaseConnection dataBaseConnection1;
 
-    private DataBaseConnection dataBaseConnection2;
+    private DatabaseConnection dataBaseConnection2;
 
     @BeforeEach
     void setUp() {
-        dataBaseConnection1 = DataBaseConnection.getInstance();
-        dataBaseConnection2 = DataBaseConnection.getInstance();
+        dataBaseConnection1 = DatabaseConnection.getInstance();
+        dataBaseConnection2 = DatabaseConnection.getInstance();
     }
 
     @Test
