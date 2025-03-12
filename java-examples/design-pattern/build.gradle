@@ -13,6 +13,8 @@ dependencies {
     implementation libs.beanutils
     implementation libs.guava
 
+    implementation libs.bundles.flogger
+    
     testAnnotationProcessor libs.lombok
     testImplementation libs.junit.jupiter
     testCompileOnly libs.lombok
