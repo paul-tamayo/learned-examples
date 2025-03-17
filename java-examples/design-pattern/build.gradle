@@ -17,6 +17,7 @@ dependencies {
     
     testAnnotationProcessor libs.lombok
     testImplementation libs.junit.jupiter
+    testImplementation libs.mockito
     testCompileOnly libs.lombok
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -27,9 +28,11 @@ java {
     }
 }
 
+/*
 application {
     mainClass = 'com.paultamayo.patterndesign.App'
 }
+*/
 
 tasks.named('test') {
     useJUnitPlatform()
