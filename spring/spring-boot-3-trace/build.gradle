@@ -31,13 +31,9 @@ dependencies {
 	
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'io.micrometer:micrometer-tracing-bridge-otel'
-	implementation 'io.opentelemetry:opentelemetry-api:1.43.0'
-    implementation 'io.opentelemetry:opentelemetry-sdk:1.43.0'
-    implementation 'io.opentelemetry:opentelemetry-extension-trace-propagators:1.43.0'
-    implementation 'ch.qos.logback.contrib:logback-json-classic:0.1.5'
-    implementation 'ch.qos.logback.contrib:logback-jackson:0.1.5'
-	//runtimeOnly 'io.micrometer:micrometer-registry-otlp'
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+    implementation 'io.opentelemetry:opentelemetry-sdk'
+
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.opentelemetry.api.trace.Span;
-import io.opentelemetry.api.trace.Tracer;
+import io.micrometer.tracing.Span;
+import io.micrometer.tracing.Tracer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
@@ -19,30 +19,21 @@ public class App {
 
 	private final Tracer tracer;
 
-	@GetMapping("/")
-	public String home() {
-		Span span = Span.current();
-
-		String traceId = span.getSpanContext().getTraceId();
-		String spanId = span.getSpanContext().getSpanId();
-		log.info("Procesando demo con traceId={} spanId={}", traceId, spanId);
-
-		return "Hello World!";
+	@GetMapping("/tracer-info")
+	public String tracerInfo() {
+		return "Tracer class: " + tracer.getClass().getName();
 	}
 
-	@GetMapping("/webflux")
-	public Mono<String> demo() {
-		Span span = tracer.spanBuilder("demo").startSpan();
-
-		return Mono.deferContextual(_ -> {
-			Span currentSpan = Span.current();
-			String traceId = currentSpan.getSpanContext().getTraceId();
-			String spanId = currentSpan.getSpanContext().getSpanId();
-
-			log.info("Procesando WebFlux con traceId={} spanId={}", traceId, spanId);
-
-			return Mono.just("TraceId actual: " + traceId);
-		}).doFinally(_ -> span.end());
+	@GetMapping("/trace")
+	public Mono<String> getTraceId() {
+		return Mono.deferContextual(contextView -> {
+			Span currentSpan = tracer.currentSpan();
+			if (currentSpan != null) {
+				String traceId = currentSpan.context().traceId();
+				return Mono.just("TraceId desde Reactor Context: " + traceId);
+			}
+			return Mono.just("No hay traceId disponible");
+		});
 	}
 
 	public static void main(String[] args) {
