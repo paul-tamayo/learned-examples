@@ -1,5 +1,8 @@
 package com.paultamayo.trace.filter;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
@@ -41,10 +44,13 @@ public class HeaderLoggingFilter implements WebFilter {
 		Span span = Span.fromContext(extractedContext);
 		SpanContext spanContext = span.getSpanContext();
 
+		Map<String, List<String>> headers = exchange.getRequest().getHeaders();
+		log.info("Headers: {}", headers);
+
 		if (spanContext.isValid()) {
 			String traceId = spanContext.getTraceId();
 			// Aquí puedes loggear o guardar el traceId en el Reactor Context
-			System.out.println("TraceId extraído: " + traceId);
+			log.info("TraceId extraído: {}", traceId);
 
 			// Propagarlo en el Reactor Context
 			return chain.filter(exchange).contextWrite(ctx -> ctx.put("traceId", traceId));

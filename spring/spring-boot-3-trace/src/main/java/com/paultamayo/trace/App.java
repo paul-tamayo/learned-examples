@@ -26,7 +26,7 @@ public class App {
 
 	@GetMapping("/trace")
 	public Mono<String> getTraceId() {
-		return Mono.deferContextual(contextView -> {
+		return Mono.deferContextual(_ -> {
 			Span currentSpan = tracer.currentSpan();
 			if (currentSpan != null) {
 				String traceId = currentSpan.context().traceId();
