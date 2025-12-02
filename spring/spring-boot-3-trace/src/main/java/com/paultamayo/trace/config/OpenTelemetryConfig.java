@@ -18,11 +18,9 @@ public class OpenTelemetryConfig {
 	@Bean
 	OpenTelemetry openTelemetry() {
 		SdkTracerProvider tracerProvider = SdkTracerProvider.builder()
-                .addSpanProcessor(SimpleSpanProcessor.create( LoggingSpanExporter.create()))
-                .build();
-		
-		return OpenTelemetrySdk.builder()
-				.setTracerProvider(tracerProvider)
+				.addSpanProcessor(SimpleSpanProcessor.create(LoggingSpanExporter.create())).build();
+
+		return OpenTelemetrySdk.builder().setTracerProvider(tracerProvider)
 				.setPropagators(ContextPropagators.create(W3CTraceContextPropagator.getInstance())).build();
 	}
 
